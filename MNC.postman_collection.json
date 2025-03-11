@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "b395e941-e232-43b1-8cdb-18ae55fe245c",
+		"name": "MNC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5611223"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"phone_number\" : \"081236823\",\r\n    \"first_name\" : \"leo\",\r\n    \"last_name\" : \"ong\",\r\n    \"address\": \"asdasd\",\r\n    \"pin\": \"123456\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone_number\": \"081236823\",\r\n    \"pin\" : \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDE2NTYyODYsInBob25lX251bWJlciI6IjA4MTIzNjgyMyIsInVzZXJfaWQiOiJkZDg4NzgwYS1hMTU0LTQyOTEtYThhMC1mNzE4NWI3ODU4NTQifQ.IOPkIBzEfAcHFAwPDy-kF_d_E7BR8EjmXGijdXsCDh8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\" : \"leoooo\",\r\n    \"last_name\" : \"ongoo\",\r\n    \"address\": \"asdasd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/profile",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Topup",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDE2NTgwNjEsInBob25lX251bWJlciI6IjA4MTIzNjgyMyIsInVzZXJfaWQiOiJmMWZiNjE5OS04NmVjLTQwYWQtYjY2Mi01ZDdiZjFiZGE1YzkifQ.IvpObRbKrWxhkXfenLLP8mfXncjR2-K0ogM1yZMqDvo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 500000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/topup",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"topup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Topup",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDE2NTgwNjEsInBob25lX251bWJlciI6IjA4MTIzNjgyMyIsInVzZXJfaWQiOiJmMWZiNjE5OS04NmVjLTQwYWQtYjY2Mi01ZDdiZjFiZGE1YzkifQ.IvpObRbKrWxhkXfenLLP8mfXncjR2-K0ogM1yZMqDvo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/topup/0446d1ee-07ff-4cb6-aa9b-83f7547bf3d1",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"topup",
+						"0446d1ee-07ff-4cb6-aa9b-83f7547bf3d1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find History Transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDE2NTI3MjEsInBob25lX251bWJlciI6IjA4MTIzNjgyMyIsInVzZXJfaWQiOiJkNjRjZjE2MC00NThkLTRkNWUtYWNhYy0yMzhiMTk0Yzc5MDAifQ.10Yk0G99wJz0w05nJ5C8c_rn8U8-LU3gfo1PW8AB1sc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/transactions",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

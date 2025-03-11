@@ -2,6 +2,8 @@ package repository
 
 import (
 	"database/sql"
+	"fmt"
+	"time"
 
 	"github.com/gocraft/work"
 	"github.com/leonardoong/e-wallet/internal/domain/entity"
@@ -69,14 +71,25 @@ func (r *transactionRepository) FindTopupByTopUpID(topUpID string) (*entity.Tran
 	row := r.db.QueryRow(query, topUpID)
 
 	transaction := &entity.Transaction{}
+	var createdAtStr, updatedAtStr string
 	err := row.Scan(&transaction.ID, &transaction.TransactionID, &transaction.UserID, &transaction.Type,
 		&transaction.Amount, &transaction.BalanceBefore, &transaction.BalanceAfter, &transaction.Description,
-		&transaction.Status, &transaction.CreatedAt, &transaction.UpdatedAt)
+		&transaction.Status, &createdAtStr, &updatedAtStr)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return nil, err
 		}
 		return nil, err
+	}
+
+	transaction.CreatedAt, err = time.Parse("2006-01-02 15:04:05", createdAtStr)
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse created_at: %w", err)
+	}
+
+	transaction.UpdatedAt, err = time.Parse("2006-01-02 15:04:05", updatedAtStr)
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse updated_at: %w", err)
 	}
 
 	return transaction, nil
